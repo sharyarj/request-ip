@@ -10,10 +10,11 @@ app.use(function(req, res) {
     
     console.log('------------------------------------------------------------------------------------');
     console.log(req.headers);
-    console.log(req.connection.remoteAddress);
-    console.log(req.socket.remoteAddress);
-    console.log(req.connection.socket.remoteAddress);
-    console.log(req.info.remoteAddress);
+    try{console.log("req.connection.remoteAddress",req.connection.remoteAddress);}catch(ex){console.log('error-req.connection.remoteAddress');}
+    try{console.log("req.socket.remoteAddress",req.socket.remoteAddress);}catch(ex){console.log('error-req.socket.remoteAddress');}
+    try{console.log("req.connection.socket.remoteAddress",req.connection.socket.remoteAddress);}catch(ex){console.log('error-req.connection.socket.remoteAddress');}
+    try{console.log("req.info.remoteAddress",req.info.remoteAddress);}catch(ex){console.log('error-req.info.remoteAddress');}
+    
     console.log('------------------------------------------------------------------------------------');
     
     // by default, the ip address will be set on the `clientIp` attribute
