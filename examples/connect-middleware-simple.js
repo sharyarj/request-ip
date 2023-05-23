@@ -7,6 +7,13 @@ var requestIp = require('request-ip');
 app.use(requestIp.mw())
 
 app.use(function(req, res) {
+    
+    console.log(req.headers);
+    console.log(req.connection.remoteAddress);
+    console.log(req.socket.remoteAddress);
+    console.log(req.connection.socket.remoteAddress);
+    console.log(req.info.remoteAddress);
+    
     // by default, the ip address will be set on the `clientIp` attribute
     var ip = req.clientIp;
     res.end(ip + '\n');
