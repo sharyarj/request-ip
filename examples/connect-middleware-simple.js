@@ -1,6 +1,8 @@
 var connect = require('connect');
 var http = require('http');
 var app = connect();
+const os = require('os');
+
 
 // require request-ip and register it as middleware
 var requestIp = require('request-ip');
@@ -14,6 +16,11 @@ app.use(function(req, res) {
     try{console.log("req.socket.remoteAddress",req.socket.remoteAddress);}catch(ex){console.log('error-req.socket.remoteAddress');}
     try{console.log("req.connection.socket.remoteAddress",req.connection.socket.remoteAddress);}catch(ex){console.log('error-req.connection.socket.remoteAddress');}
     try{console.log("req.info.remoteAddress",req.info.remoteAddress);}catch(ex){console.log('error-req.info.remoteAddress');}
+    
+    
+    const networkInterfaces = os.networkInterfaces();
+    const ip = networkInterfaces['eth0'][0]['address'];
+    console.log("networkInterfaces",networkInterfaces);
     
     console.log('------------------------------------------------------------------------------------');
     
