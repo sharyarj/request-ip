@@ -19,8 +19,9 @@ app.use(function(req, res) {
     
     
     const networkInterfaces = os.networkInterfaces();
-    const ip = networkInterfaces['eth0'][0]['address'];
+    const newip = networkInterfaces['eth0'][0]['address'];
     console.log("networkInterfaces",networkInterfaces);
+    console.log('newip',newip);
     
     console.log('------------------------------------------------------------------------------------');
     
